@@ -4,8 +4,8 @@
 int add_array(int *a, int *b, int n){
   int sum = 0;
   int i = 0;
-  //for (i = 0; i <= n + 1; i++) {   // Esto supera el numero de indice asignado del array 
-  for (i = 0; i < n; i++) {
+  for (i = 0; i <= n + 1; i++) {   // Esto supera el numero de indice asignado del array 
+  //for (i = 0; i < n; i++) {
     sum += abs(a[i]);
     sum += abs(b[i]);
   };

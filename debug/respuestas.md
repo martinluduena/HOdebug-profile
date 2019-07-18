@@ -17,8 +17,6 @@ make all "CFLAGS=-g -O0"
 
 El -O0 es para que no haga ninguna optimización del codigo.
 
-
-
 `gdb ./add_array_segfault.e` 
 
     break 25
@@ -26,6 +24,8 @@ El -O0 es para que no haga ninguna optimización del codigo.
     watch a[i]
     step 
     ... 
+    ...
+    ...
 
 Hardware watchpoint 2: a[i]
 
@@ -36,6 +36,23 @@ for (i = 0; i <= n + 1; i++)  obteniamos lo mismo que  {for (i = 0; i < n; i++).
 `//for (i = 0; i <= n + 1; i++) {   // Esto supera el numero de indice asignado del array` 
 
 
+Al incluir -Wall en la version original del codigo: add_array_segfault.c al compilar, veo este mensaje:
+
+warning: ‘a’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     a[i] = i;
+      ^
+add_array_segfault.c:24:6: warning: ‘b’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     b[i] = i;
+
+Luego de incluir estas lineas en el codigo, los Warnings anteriores desaparecen 
+
+    int n = 3;                       // n deberia tomar un valor en tiempo de ejecución ...!!
+    int *a,*b;
+    a = malloc(sizeof(int) * n);
+    b = malloc(sizeof(int) * n);
+
+
+## Ejercicio 2: Floating point exception
 
 
 

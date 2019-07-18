@@ -83,8 +83,16 @@ subroutine good_assign(i1, i2, dim, a, b, c, alpha)
   integer i1, i2, dim
   real a(dim, dim), b(dim, dim), c(dim, dim)
   real alpha
+   
+  integer i 
+  real suma 
+  suma=0
+ 
+  alpha  = a(i1,i2) + b(i1,i2) + c(i1,i2) + alpha
   
-  a(i1,i2) = a(i1,i2) + b(i1,i2) + c(i1,i2) + alpha
+  
+  
+
 
 end subroutine 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
